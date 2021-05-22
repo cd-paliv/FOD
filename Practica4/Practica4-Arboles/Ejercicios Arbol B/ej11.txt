@@ -1,0 +1,73 @@
+11. Dado el siguiente árbol B de orden 5, mostrar como quedaría el mismo luego de realizar
+las siguientes operaciones: +450, -485, -511, -614.
+Política de resolución de underflows: derecha.
+
+2: 0 (315) 1 (485) 4 (547) 5 (639) 3
+
+0: (148)(223) 1: (333)(390)(442)(454) 4: (508)(511) 5: (614)(633) 3: (789)(915)
+
+-----------------------------------------------x--------------------------------------------
+Operación +450:
+    1. Se lee nodo 2, nodo 1 y se da de alta el 450 produiciendo overflow. Se genera el nodo
+        6 y se distribuyen los elementos del nodo 1, promocionando el 442
+
+        2: 0 (315) 1 (442) 6 (485) 4 (547) 5 (639) 3
+
+        0: (148)(223) 1: (333)(390) 6: (450)(454) 4: (508)(511) 5: (614)(633) 3: (789)(915)
+    
+    2. Al promocionar el 442 se produce overflow en el nodo 2, por lo cual se genera el nodo
+        7, se distribuyen los elementos del nodo 2 y promociona el 485 a la nueva raíz(nodo 8)
+
+        8: 2 (485) 7
+
+        2: 0 (315) 1 (442) 6 | 7: 4 (547) 5 (639) 3
+
+        0: (148)(223) 1: (333)(390) 6: (450)(454) | 4: (508)(511) 5: (614)(633) 3: (789)(915)
+    
+    Lecturas: Nodos 2, 1. Escrituras: Nodos 1, 6, 2, 7, 8.
+
+Operacion -485:
+    1. Se lee el nodo 8, se intercambia el 485 por el menor de los mayores(508) y se da de
+        baja.
+    
+        8: 2 (508) 7
+
+        2: 0 (315) 1 (442) 6 | 7: 4 (547) 5 (639) 3
+
+        0: (148)(223) 1: (333)(390) 6: (450)(454) | 4: (511) 5: (614)(633) 3: (789)(915)
+
+    Lecturas: Nodo 8, 7, 4. Escrituras: Nodo 4, 8.
+
+Operacion -511:
+    1. Se lee nodo 8, 7, 4 y se intenta dar de baja el 511 produciendo overflow. Se
+        redistribuyen los elementos con el nodo derecho, promocionando el 614.
+
+        8: 2 (508) 7
+
+        2: 0 (315) 1 (442) 6 | 7: 4 (614) 5 (639) 3
+
+        0: (148)(223) 1: (333)(390) 6: (450)(454) | 4: (547) 5: (633) 3: (789)(915)
+    
+    Lecturas: Nodo 8, 7, 4, 5. Escrituras: Nodo 4, 5, 7.
+
+Operacion -614:
+    1. Se lee nodo 8, 7, se intercambia el 614 por el menor de los mayores.
+
+        8: 2 (508) 7
+
+        2: 0 (315) 1 (442) 6 | 7: 4 (633) 5 (639) 3
+
+        0: (148)(223) 1: (333)(390) 6: (450)(454) | 4: (547) 5: (614) 3: (789)(915)
+    
+    2. Se intenta dar de baja el 614 produciendo underflow. Se redistribuye con su hermano
+        derecho (nodo 3) promocionando el 789.
+
+        8: 2 (508) 7
+
+        2: 0 (315) 1 (442) 6 | 7: 4 (633) 5 (789) 3
+
+        0: (148)(223) 1: (333)(390) 6: (450)(454) | 4: (547) 5: (639) 3: (915)
+    
+    Lecturas: Nodo 8, 7, 5, 3. Escrituras: Nodo 5, 3, 7.
+
+    

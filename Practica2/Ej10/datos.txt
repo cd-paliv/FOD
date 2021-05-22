@@ -1,0 +1,14 @@
+1024 5 Informatica
+4 Avellaneda
+1234 12 Informatica
+2 Avellaneda
+1524 15 Informatica
+1 Avellaneda
+2012 8 Economia
+3 Campana
+2025 2 Economia
+8 Campana
+2354 4 Economia
+6 Ezeiza
+2456 9 Economia
+7 Ensenada

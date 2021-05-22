@@ -1,0 +1,35 @@
+12. Dado el siguiente árbol B de orden 5 , mostrar como quedaría el mismo luego de
+realizar las siguientes operaciones: +15, -45, -50.
+Política de resolución de underflows: izquierda.
+
+2: 0 (56) 1
+
+0: (10)(35)(45)(50)  1: (66) (70) (88)(120)
+
+-----------------------------------------------x--------------------------------------------
+Operacion +15:
+    1. Se lee nodo 2, nodo 0 y se da de alta el 15, produciendo overflow. Se genera el nodo 3
+        y se distribuyen los datos, promocionando el 35 a la raíz.
+
+        2: 0 (35) 3 (56) 1
+
+        0: (10)(15) 3: (45)(50) 1: (66) (70) (88)(120)
+
+    Lecturas: Nodo 2, 0. Escrituras: Nodo 0, 3, 2.
+
+Operacion -45:
+    1. Se lee nodo 2, nodo 3 y se da de baja el 45.
+    
+        2: 0 (35) 3 (56) 1
+
+        0: (10)(15) 3: (50) 1: (66) (70) (88)(120)
+    
+    Lecturas: Nodo 2, 3. Escrituras: Nodo 3.
+
+Operacion -50:
+    1. Se lee nodo 2, nodo 3 y se intenta dar de baja el 50 produciendo underflow. Se
+        redistribuyen los elementos con el nodo 0, promocionando el 15.
+    
+        2: 0 (15) 3 (56) 1
+
+        0: (10) 3: (35) 1: (66) (70) (88)(120)

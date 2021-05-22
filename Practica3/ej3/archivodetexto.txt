@@ -1,0 +1,7 @@
+Novela: 
+        Codigo: 123 |Genero: ficcion |Nombre: peli1 |Duracion: 3.40 |Director: paula |Precio: $3456.90
+Novela: 
+        Codigo: 789 |Genero: fantasia |Nombre: peli3 |Duracion: 1.20 |Director: blanca |Precio: $546.70
+Novela: 
+        Codigo: 102 |Genero: ciencia ficcion |Nombre: peli100 |Duracion: 56.70 |Director: mariA |Precio: $12.30
+Posiciones eliminadas: -2 

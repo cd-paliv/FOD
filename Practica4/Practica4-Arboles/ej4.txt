@@ -1,0 +1,31 @@
+4. Dado el siguiente algoritmo de búsqueda en un árbol B:
+
+function buscar(NRR, clave, NRR_encontrado, pos_encontrada)
+begin
+	if (nodo = null)
+	buscar := false; {clave no encontrada}
+	else
+		posicionarYLeerNodo(A, nodo, NRR);
+		if (claveEncontrada(A, nodo, clave, pos)) then
+			NRR_encontrado := NRR; {NRR actual)
+			pos_encontrada := pos; {posición dentro del array}
+		end
+		else
+			buscar(nodo.hijo[pos], clave, NRR_encontrado, pos_encontrada)
+
+end;
+
+Asuma que para la primera llamada, el parámetro NRR contiene la posición de la raíz
+del árbol. Responda detalladamente:
+
+a. PosicionarYLeerNodo(): Indique qué hace y la forma en que deben ser enviados
+los parámetros (valor o referencia).
+ - Supongo que va y busca si está la clave y devuelve la pos. Los parámetros deberían ser por referncia
+
+b. claveEncontrada(): Indique qué hace y la forma en que deben ser enviados los
+parámetros (valor o referencia). ¿Cómo lo implementaría?
+ - Pues me dice si encontró la clave o no xdxdxd con parámetros por referencia
+
+c. ¿Existe algún error en este código? En caso afirmativo, modifique lo que considere
+necesario.
+ - Si, la verdad el código es una poronga

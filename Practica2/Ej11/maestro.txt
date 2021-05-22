@@ -1,0 +1,11 @@
+15 30 Chaco
+26 30 Chubut
+5 10 Cordoba
+16 20 Corrientes
+24 25 EntreRios
+30 40 Formosa
+25 27 Jujuy
+1 2 LaPampa
+7 9 LaRioja
+50 55 Mendoza
+31 35 Misiones

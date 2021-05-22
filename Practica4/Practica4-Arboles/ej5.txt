@@ -1,0 +1,11 @@
+5. Defina los siguientes conceptos:
+a. Overflow
+    Hace referencia a un exceso de datos que pueden ser perdidos o transferidos
+b. Underflow
+    Hace referencia a si, el resultado de una operación se encuentra por debajo
+    del mínimo, se dice que ocurre underflow
+c. Redistribuci�n
+    
+d. Fusi�n o concatenaci�n
+
+En los dos últimos casos, ¿cuándo se aplica cada uno?

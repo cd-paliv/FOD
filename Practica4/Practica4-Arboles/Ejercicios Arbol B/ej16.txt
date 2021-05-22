@@ -1,0 +1,38 @@
+16. Dada las siguientes operaciones, mostrar cómo se construye el árbol B de orden 4: +65,
++89, +23, +45, +20, +96, +10, +55, -23, +110, +50, -10, +25, -50, -45, +120, +130, +70, +75, +73,
++100, -120, -110.
+Política de resolución de underflows: derecha.
+
+-----------------------------------------------x--------------------------------------------
+Operacion +65:
+    1. Se genera el árbol (nodo 0) y se da de alta el 65.
+
+        0: (65)
+
+Operacion +89:
+    1. Se lee nodo 0 y se da de alta el 89.
+
+        0 : (65)(89)
+
+Operacion +23:
+    1. Se lee nodo 0 y se da de alta el 23.
+
+        0 : (23)(65)(89)
+
+Operacion +45:
+    1. Se lee nodo 0 y se da de alta el 45 produciendo overflow. Se genera el nodo 1 con el
+        cual se redistribuyen los datos del nodo 0 y se genera el nodo 2 el cual será la nueva
+        raíz, aumentando la altura del árbol.
+
+        2: 0 (65) 1
+        
+        0 : (23)(45) 1: (89)
+
+Operacion +20:
+    1. Se lee nodo 2, nodo 0 y se da de alta el 20.
+    
+        2: 0 (65) 1
+        
+        0 : (20)(23)(45) 1: (89)
+
+Operacion +96:

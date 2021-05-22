@@ -1,0 +1,66 @@
+9. Dado el siguiente árbol B de orden 4, mostrar cómo quedaría el mismo luego de realizar
+las siguientes operaciones: +2, +10, +95, +60, -40, -102.
+Política de resolución de underflows: derecha.
+
+    2: 0 (56) 1
+
+    0: (23)(34)(40) 1: (67)(89)(102)
+
+-----------------------------------------------x--------------------------------------------
+Operación +2:
+    1. Se lee el nodo 2, nodo 0 y se intenta dar de alta 2 produciendo overflow. Se crea el
+        nodo 3 y promociona el 34 a la raíz.
+
+        2: 0 (34) 3 (56) 1
+
+        0: (2)(23) 3: (40)  1: (67)(89)(102)
+    
+    Lecturas: Nodos 2, 0. Escrituras: Nodos 0, 4, 2
+
+Operacion +10:
+    1. Se lee nodo 2, nodo 0 y se da de alta el 10
+
+        2: 0 (34) 3 (56) 1
+
+        0: (2)(10)(23) 3: (40)  1: (67)(89)(102)
+    
+    Lecturas: Nodos 2, 0. Escrituras: Nodos 0
+
+Operacion +95:
+    1. Se lee nodo 2, nodo 1 y se intenta dar de alta 95 produciendo overflow. Se crea el
+        nodo 4 y promociona el 95 a la raíz.
+    
+        2: 0 (34) 3 (56) 1 (95) 4
+
+        0: (2)(10)(23)  3: (40)  1: (67)(89)  4: (102)
+    
+    Lecturas: Nodos 2, 1. Escrituras: Nodos 1, 4, 2
+
+Operacion +60:
+    1. Se lee nodo 2, nodo 1 y se da de alta el 60
+    
+        2: 0 (34) 3 (56) 1 (95) 4
+
+        0: (2)(10)(23)  3: (40)  1: (60)(67)(89)  4: (102)
+    
+    Lecturas: Nodos 2, 1. Escrituras: Nodos 1
+
+Operacion -40:
+    1. Se lee nodo 2, nodo 3 y se intenta dar de baja el 40 produciendo underflow, por lo
+        cual se distribuyen los elementos del hermano der.
+    
+        2: 0 (34) 3 (60) 1 (95) 4
+
+        0: (2)(10)(23)  3: (56)  1: (67)(89)  4: (102)
+    
+    Lecturas: Nodos 2, 3, 1. Escrituras: Nodos 3, 1, 2.
+
+Operacion -102:
+    1. Se lee nodo 2, nodo 4 y se intenta dar de baja el 102 produciendo underflow, pero como
+        no tiene hermano derecho se distribuyen los elementos del hermano izquierdo(nodo 1).
+
+        2: 0 (34) 3 (60) 1 (89) 4
+
+        0: (2)(10)(23)  3: (56)  1: (67)  4: (95)
+    
+    Lecturas: Nodos 2, 4, 1. Escrituras: Nodos 1, 4, 2.

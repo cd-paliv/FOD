@@ -1,0 +1,63 @@
+10. Dado el siguiente árbol B de orden 6, mostrar como quedaría el mismo luego de realizar
+las siguientes operaciones: +15, +71, +3, +48, -56, -71.
+Política de resolución de underflows: derecha o izquierda.
+
+    0: (34) (56) (78) (100) (176)
+-----------------------------------------------x--------------------------------------------
+Operacion +15:
+    1. Se lee nodo 0 y se produce overflow. Se genera el nodo 1 con el cual se distribuyen
+        los elementos y se crea el nodo 2(nueva raíz) al cual promociona 78
+
+        2: 0 (78) 1
+
+        0: (15)(34)(56)  1: (100)(176)
+    
+    Lecturas: Nodo 0. Escrituras: Nodo 0, 1, 2.
+
+Operacion +71:
+    1. Se lee nodo 2, nodo 0 y se da de alta el 71
+
+        2: 0 (78) 1
+
+        0: (15)(34)(56)(71)  1: (100)(176)
+    
+    Lecturas: Nodo 2, 0. Escrituras: Nodo 0.
+
+Operacion +3:
+    1. Se lee el nodo 2, nodo 0 y se da de alta el 3
+
+        2: 0 (78) 1
+
+        0: (3)(15)(34)(56)(71)  1: (100)(176)
+    
+    Lecturas: Nodo 2, 0. Escrituras: Nodo 0.
+
+Operacion +48:
+    1. Se lee nodo 2, nodo 0 y se intenta dar de alta el 48 produciendo overflow. Se genera
+        el nodo 3 con el cual se distribuyen los elementos y promociona el 48
+
+        2: 0 (48) 3 (78) 1
+
+        0: (3)(15)(34)  3: (56)(71)  1: (100)(176)
+    
+    Lecturas: Nodo 2, 0. Escrituras: Nodo 0, 3, 2.
+
+Operacion -56:
+    1. Se lee nodo 2, nodo 3 y se intenta dar de baja el 56 produciendo underflow, no se
+        puede redistribuir con el hermano derecho por lo cual lo hace con el izq(promociona 34)
+
+        2: 0 (34) 3 (78) 1
+
+        0: (3)(15)  3: (48)(71)  1: (100)(176)
+    
+    Lecturas: Nodos 2, 3, 1, 0. Escrituras: Nodos 0, 3, 2. //se lee el nodo 1 para saber que no es posible redistribuir?
+
+Operacion -71:
+    1. Se lee nodo 2, nodo 3 y se intenta dar de baja el 71 produciendo underflow, no se puede
+        redistribuir con ningún hermano por lo cual se fusiona con el izquierdo.
+    
+        2: 0 (78) 1
+
+        0: (3)(15)(34)(48)  1: (100)(176)
+    
+    Lecturas: Nodos 2, 3, 1, 0. Escrituras: Nodos 0, 3, 2.

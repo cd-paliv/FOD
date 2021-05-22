@@ -1,0 +1,29 @@
+20. Dado el siguiente árbol B+ de orden 4, mostrar cómo quedaría definido el árbol luego
+de realizar las siguientes operaciones: -56, -23, -1.
+
+    2: 0 (56) 1
+
+    0: (1)(23) 1 1: (56) (75) (107)
+
+-----------------------------------------------x--------------------------------------------
+Operacion -56:
+    1. Se lee nodo 2, nodo 1 y se da de baja el 56.
+
+        2: 0 (56) 1
+
+        0: (1)(23) 1 1: (75)(107)
+
+Operacion -23:
+    1. Se lee nodo 2, nodo 0 y se da de baja el 23.
+
+        2: 0 (56) 1
+
+        0: (1) 1 1: (75)(107)
+
+Operacion -1:
+    1. Se lee nodo 2, nodo 0 y se da de baja el 1 produciendo underflow. Se redistribuyen las
+        claves de su hermano derecho (nodo 1). Promociona la copia del 107.
+
+        2: 0 (107) 1
+
+        0: (75) 1 -> 1: (107)

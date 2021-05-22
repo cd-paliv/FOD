@@ -1,0 +1,44 @@
+21. Dado el siguiente árbol B+ de orden 4 , mostrar como quedaría el árbol luego de
+realizar cada operación : +96, -10, -67, -23, -37.
+
+    2: 0 (37) 3 (67) 1
+
+    0: (10)(23) 3 3: (37)(45) 1 1: (67) (77)
+
+-----------------------------------------------x--------------------------------------------
+Operacion +96:
+    1. Se lee nodo 2, nodo 1 y se da de alta el 96.
+    
+        2: 0 (37) 3 (67) 1
+
+        0: (10)(23) 3 3: (37)(45) 1 1: (67)(77)(96)
+
+Operacion -10:
+    1. Se lee nodo 2, nodo 0 y se da de baja el 10.
+    
+        2: 0 (37) 3 (67) 1
+
+        0: (23) 3 3: (37)(45) 1 1: (67)(77)(96)
+
+Operacion -67:
+    1. Se lee nodo 2, nodo 1 y se da de baja el 67.
+    
+        2: 0 (37) 3 (67) 1
+
+        0: (23) 3 3: (37)(45) 1 1: (77)(96)
+
+Operacion -23:
+    1. Se lee nodo 2, nodo 0 y se da de baja el 23 produciendo underflow. Se redistribuyen las
+        claves del nodo 3. Promociona la copia del 45.
+    
+        2: 0 (45) 3 (67) 1
+
+        0: (37) 3 3: (45) 1 1: (77)(96)
+
+Operacion -37:
+    1. Se lee nodo 2, nodo 0 y se da de baja el 37 produciendo underflow. Como su único 
+        hermano está en el mínimo de claves, se fusionan (nodo 0 y 3).
+
+        2: 0 (67) 1
+
+        0: (45) 1 1: (77)(96)

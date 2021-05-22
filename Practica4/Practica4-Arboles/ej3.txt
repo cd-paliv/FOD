@@ -1,0 +1,5 @@
+{3. Suponga ahora que los datos de los médicos se encuentran desordenados en un
+archivo de datos y Ud. debe proveer mecanismos para la búsqueda de médicos por los
+siguientes criterios: dni, legajo y apellido y nombre. Defina las estructuras de datos
+necesarias para estos requerimientos.
+    Generar los árboles para DNI y para legajo. Con B+. Para buscar por apellido y nombre tengo que recorrer todo el archivo}

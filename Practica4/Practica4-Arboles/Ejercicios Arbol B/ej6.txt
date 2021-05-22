@@ -1,0 +1,67 @@
+6. Dado el siguiente árbol B de orden 5, mostrar como quedaría el mismo luego de
+realizar las siguientes operaciones: +445, -490, -507, -608. Justificar detalladamente
+cada operación indicando lecturas y escrituras en orden de ocurrencia. Para la
+resolución de underflow debe utilizar política a izquierda. Graficar cada operación por
+separado.
+
+    2: 0 (320) 1 (490) 4 (555) 5 (641) 3
+
+    0: (13)(153) 1: (325)(341)(431)(460) 4: (500)(507) 5: (608)(633) 3: (790)(923)
+
+-----------------------------------------------x--------------------------------------------
+Operación +445:
+    1. Se lee nodo 2, nodo 1, se intenta dar de alta 445 en el nodo 1 produciendo overflow
+        Se crea el nodo 6, se dividen las claves del nodo 1 entre ambos, y 431 promociona.
+
+        2: 0 (320) 1 (490) 4 (555) 5 (641) 3
+
+        0: (13)(153) 1: (325)(341) 6: (445)(460) 4: (500)(507) 5: (608)(633) 3: (790)(923)
+
+    2. Al promocionar 431 al nodo 2 se propaga el overflow, debiéndose crear un nuevo nodo
+        y aumentar la altura del árbol: se crea nodo 7 y se dividen las claves del nodo 2.
+        Promociona 490 y pasa a formar la raíz
+
+        8: 2 (490) 7
+
+        2: 0 (320) 1 (431) 6  7: 4 (555) 5 (641) 3
+        
+        0: (13)(153) 1: (325)(341) 6: (445)(460) 4: (500)(507) 5: (608)(633) 3: (790)(923)
+
+    Lecturas: Nodos: 1, 2. Escrituras: Nodos: 1, 6, 2, 7, 8
+
+Operacion -490:
+    1. Se lee nodo 8(raíz), se lee 7, se lee 4 y se intercambia el menor de los mayores por
+        490(quedando 500 en la raíz) y se da de baja el 490.
+
+        8: 2 (500) 7
+
+        2: 0 (320) 1 (431) 6 | 7: 4 (555) 5 (641) 3
+        
+        0: (13)(153) 1: (325)(341) 6: (445)(460) | 4: (507) 5: (608)(633) 3: (790)(923)
+
+    Lecturas: Nodos 8, 7, 4. Escrituras: Nodos 4, 8.
+
+Operacion -507:
+    1. Se lee nodo 8, nodo 7, nodo 4 y se intenta dar de baja 507, produciendo underflow.
+        No tiene hermano izquierdo así que se fusiona con el 5, promocionando el 608.
+
+        8: 2 (500) 7
+
+        2: 0 (320) 1 (431) 6 | 7: 4 (608) 5 (641) 3
+        
+        0: (13)(153) 1: (325)(341) 6: (445)(460) | 4: (555) 5: (633) 3: (790)(923)
+    
+    Lecturas: Nodos 8, 7, 4. Escrituras: Nodos 4, 5, 7
+
+Operacion -608:
+    1. Se lee nodo 8, nodo 7, se intercambia el 608 con el menor de los mayores(633) y se
+        intenta eliminar pero produce underflow, el hermano izq está en el mínimo de claves
+        por lo cual se fusiona.
+
+        8: 2 (500) 7
+
+        2: 0 (320) 1 (431) 6 | 7: 4 (641) 3
+        
+        0: (13)(153) 1: (325)(341) 6: (445)(460) | 4: (555)(633) 3: (790)(923)
+    
+    Lecturas: Nodos 8, 7, 5, 4. Escrituras: Nodos 4, 5, 7

@@ -1,0 +1,121 @@
+15. Dado el siguiente árbol B de orden 6, mostrar como quedaría el mismo luego de realizar
+las siguientes operaciones: +300, +577, -586, -570, -380, -460.
+Política de resolución de underflows: izquierda o derecha.
+
+2: 0 (216) 1 (460) 4 (570) 5 (689) 3 (777) 6
+
+0: (100)(159)(171)
+1: (222)(256)(358)(380)(423)
+4: (505)(522)
+
+5: (586)(599)(615)(623)(680)
+3: (703)(725)
+6: (789)(915)(1000)
+
+-----------------------------------------------x--------------------------------------------
+Operacion +300:
+    1. Se lee nodo 2, nodo 1 y se da de alta el 300 produciendo overflow. Se genera el nodo
+        7 con el cual se redistribuyen los datos del nodo 1, promocionando el 358
+    
+        2: 0 (216) 1 (358) 7 (460) 4 (570) 5 (689) 3 (777) 6
+
+        0: (100)(159)(171)
+        1: (222)(256)(300)
+        7: (380)(423)
+        4: (505)(522)
+
+        5: (586)(599)(615)(623)(680)
+        3: (703)(725)
+        6: (789)(915)(1000)
+    
+    2. Al promocionar el 358, se propaga el overflow a la raíz, por lo cual se genera el nodo
+        8 con el cual se redistribuyen los datos del nodo 2, y se genera el nodo 9 el cual será
+        la nueva raíz (con el 570).
+        
+        9: 2 (570) 8
+        
+        2: 0 (216) 1 (358) 7 (460) 4
+        8: 5 (689) 3 (777) 6
+
+        0: (100)(159)(171)
+        1: (222)(256)(300)
+        7: (380)(423)
+        4: (505)(522)
+
+        5: (586)(599)(615)(623)(680)
+        3: (703)(725)
+        6: (789)(915)(1000)
+
+Operacion +577:
+    1. Se lee nodo 9, nodo 8, nodo 5 y se da de alta el 577, produciendo overflow. Se genera
+        el nodo 10 con el cual se redistribuyen los datos del nodo 5 (promociona 615 a nodo 8).
+         
+        9: 2 (570) 8
+        
+        2: 0 (216) 1 (358) 7 (460) 4
+        8: 5 (615) 10 (689) 3 (777) 6
+
+        0: (100)(159)(171)
+        1: (222)(256)(300)
+        7: (380)(423)
+        4: (505)(522)
+
+        5: (577)(586)(599)
+        10: (623)(680)
+        3: (703)(725)
+        6: (789)(915)(1000)
+
+Operacion -586:
+    1. Se lee nodo 9, nodo 8, nodo 5 y se da de baja el 586.
+    
+        9: 2 (570) 8
+        
+        2: 0 (216) 1 (358) 7 (460) 4
+        8: 5 (615) 10 (689) 3 (777) 6
+
+        0: (100)(159)(171)
+        1: (222)(256)(300)
+        7: (380)(423)
+        4: (505)(522)
+
+        5: (577)(599)
+        10: (623)(680)
+        3: (703)(725)
+        6: (789)(915)(1000)
+
+Operacion -380:
+    1. Se lee nodo 9, nodo 2, nodo 7 y se da de baja el 380.
+    
+        9: 2 (570) 8
+        
+        2: 0 (216) 1 (358) 7 (460) 4
+        8: 5 (615) 10 (689) 3 (777) 6
+
+        0: (100)(159)(171)
+        1: (222)(256)(300)
+        7: (423)
+        4: (505)(522)
+
+        5: (577)(599)
+        10: (623)(680)
+        3: (703)(725)
+        6: (789)(915)(1000)
+
+Operacion -460:
+    1. Se lee nodo 9, nodo 2 y se intercambia el 460 por el menor de sus mayores(460). Se da
+        de baja.
+    
+        9: 2 (570) 8
+        
+        2: 0 (216) 1 (358) 7 (505) 4
+        8: 5 (615) 10 (689) 3 (777) 6
+
+        0: (100)(159)(171)
+        1: (222)(256)(300)
+        7: (423)
+        4: (522)
+
+        5: (577)(599)
+        10: (623)(680)
+        3: (703)(725)
+        6: (789)(915)(1000)

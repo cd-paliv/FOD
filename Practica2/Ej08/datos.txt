@@ -1,0 +1,21 @@
+1524 Jorge-Lopez
+2 3 2021
+200.3
+1524 Jorge-Lopez
+15 3 2021
+4000.5
+1524 Jorge-Lopez
+25 7 2021
+150.2
+3254 Paula-Vaccaro
+28 3 2021
+560.8
+3254 Paula-Vaccaro
+14 1 2020
+1027.3
+4568 Maria-Lopez
+30 3 2021
+2000.1
+6587 Ramiro-Vaccaro
+16 5 2021
+1524.3

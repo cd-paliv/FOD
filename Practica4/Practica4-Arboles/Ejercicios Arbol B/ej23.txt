@@ -1,0 +1,136 @@
+23. Dado un árbol B de orden 5 y con política izquierda o derecha, para cada operación
+dada:
+
+a. Dibuje el árbol resultante
+b. Explique detalladamente las decisiones tomadas
+c. Escriba las lecturas y escrituras
+
+Operaciones: +165, +260, +800, -110,
+Árbol: Nodo 8: 1 i 2 (150) 7
+Nodo 2: 1 i 0 (120) 3
+Nodo 7: 2 i 4 (210)6(300)1
+Nodo 0: 2 h (30)(110)
+Nodo 3: 1 h (130)
+Nodo 4: 4 h (160)(170)(180)(200)
+Nodo 6: 4 h (220)(230)(240)(250)
+Nodo 1: 4 h (400)(500)(600)(700)
+
+-----------------------------------------------x--------------------------------------------
+a. Árbol inicial:
+8: 2 (150) 7
+
+2: 0 (120) 3 | 7: 4 (210) 6 (300) 1
+
+0: (30)(110) 3: (130) | 4: (160)(170)(180)(200) 6: (220)(230)(240)(250) 1: (400)(500)(600)(700)
+
+
+-Árbol resultante:
+8: 2 (150) 7 (240) 12
+
+2: 0 (120) 3 | 7: 4 (170) 9 (210) 6 | 12: 10 (300) 1 (600) 11
+
+0: (30) 3: (130)| 4: (160)(165) 9: (180)(200) 6: (220)(230) | 10: (250)(260) 1: (400)(500) 11: (700)(800)
+
+-----------------------------------------------x--------------------------------------------
+Operacion +165:
+    1. Se lee nodo 8, nodo 7, nodo 4 y se da de alta el 165 produciendo overflow. Se genera el
+        nodo 9 con el cual se distribuyen los elementos del nodo 4, promocionando el 170 a la
+        raíz.
+
+        8: 2 (150) 7
+
+        2: 0 (120) 3
+        7: 4 (170) 9 (210) 6 (300) 1
+
+        0: (30)(110)
+        3: (130)
+        
+        4: (160)(165)
+        9: (180)(200)
+        6: (220)(230)(240)(250)
+        1: (400)(500)(600)(700)
+    
+    Lecturas: Nodos 8, 7, 4. Escrituras: Nodos 4, 9, 7.
+
+Operacion +260:
+    1. Se lee nodo 8, nodo 7, nodo 6 y se da de alta el 260 produciendo overflow. Se genera el
+        nodo 10 con el cual se distribuyen los elementos del nodo 6, promocionando el 240 a la
+        raíz(nodo 7).
+    
+        8: 2 (150) 7
+
+        2: 0 (120) 3
+        7: 4 (170) 9 (210) 6 (240) 10 (300) 1
+
+        0: (30)(110)
+        3: (130)
+        
+        4: (160)(165)
+        9: (180)(200)
+        6: (220)(230)
+        10: (250)(260)
+        1: (400)(500)(600)(700)
+    
+    Lecturas: Nodos 8, 7, 6. Escrituras: Nodos 6, 10, 7.
+
+Operacion +800:
+    1.  Se lee nodo 8, nodo 7, nodo 1 y se da de alta el 800 produciendo overflow. Se genera el
+        nodo 11 con el cual se distribuyen los elementos del nodo 1, promocionando el 600 a la
+        raíz.
+    
+        8: 2 (150) 7
+
+        2: 0 (120) 3
+        7: 4 (170) 9 (210) 6 (240) 10 (300) 1 (600) 11
+
+        0: (30)(110)
+        3: (130)
+        
+        4: (160)(165)
+        9: (180)(200)
+        6: (220)(230)
+        10: (250)(260)
+        1: (400)(500)
+        11: (700)(800)
+    
+    2. Al promocionar el 600 se propaga el overflow a la raíz, por lo cual se genera el nodo
+        12 con el cual se distribuyen los elementos del nodo 7, promocionando el 240 a la raíz.
+        
+        8: 2 (150) 7 (240) 12
+
+        2: 0 (120) 3
+        7: 4 (170) 9 (210) 6 
+        12: 10 (300) 1 (600) 11
+
+        0: (30)(110)
+        3: (130)
+        
+        4: (160)(165)
+        9: (180)(200)
+        6: (220)(230)
+        10: (250)(260)
+        1: (400)(500)
+        11: (700)(800)
+    
+    Lecturas: Nodos 8, 7, 1. Escrituras: Nodos 1, 11, 7, 12, 8.
+
+Operacion -110:
+    1. Se lee nodo 8, nodo 2, nodo 0 y se da de baja el 110.
+    
+        8: 2 (150) 7 (240) 12
+
+        2: 0 (120) 3
+        7: 4 (170) 9 (210) 6 
+        12: 10 (300) 1 (600) 11
+
+        0: (30)
+        3: (130)
+        
+        4: (160)(165)
+        9: (180)(200)
+        6: (220)(230)
+        10: (250)(260)
+        1: (400)(500)
+        11: (700)(800)
+    
+    Lecturas: Nodos 8, 2, 0. Escrituras: Nodo 0.

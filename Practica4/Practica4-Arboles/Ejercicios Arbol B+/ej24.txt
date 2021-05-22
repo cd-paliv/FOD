@@ -1,0 +1,84 @@
+24. Dado un árbol B+ de orden 5 y con política izquierda o derecha, para cada operación
+dada:
+
+a. Dibuje el árbol resultante
+b. Explique detalladamente las decisiones tomadas
+c. Escriba las lecturas y escrituras
+
+Operaciones: +240, -300, -40
+Árbol:
+    nodo 8: 1 i 2(70)7
+    nodo2:1 i 0(50)4
+    nodo7: 4 i 5(90)6(120)3(210)9(300)1
+    nodo 0: 1 h(40)->4
+    nodo 4: 1 h(50)->5
+    nodo 5: 2 h(70)(80)->6
+    nodo 6: 2 h(90)(100)->3
+    nodo 3: 2 h(120)(200)->9
+    nodo 9: 4 h(210)(220)(230)(240)->1
+    nodo 1: 2 h(400)(500)-> -1
+
+-----------------------------------------------x--------------------------------------------
+Operacion +240:
+    1. Se lee nodo 8, nodo 7, nodo 9 y se intenta dar de alta el 240, que ya está en el árbol.
+
+        8: 2 (70) 7
+
+        2: 0 (50) 4
+        7: 5 (90) 6 (120) 3 (210) 9 (300) 1
+
+        0: (40) 4
+        4: (50) 5
+        5: (70)(80) 6
+        6: (90)(100) 3
+        3: (120)(200) 9
+        9: (210)(220)(230)(240) 1
+        1: (400)(500) -1
+
+Operacion -300:
+    1. Se lee nodo 8, nodo 7, nodo 1 y se determina que la clave 300 no está en el árbol.
+    
+        8: 2 (70) 7
+
+        2: 0 (50) 4
+        7: 5 (90) 6 (120) 3 (210) 9 (300) 1
+
+        0: (40) 4
+        4: (50) 5
+        5: (70)(80) 6
+        6: (90)(100) 3
+        3: (120)(200) 9
+        9: (210)(220)(230)(240) 1
+        1: (400)(500) -1
+
+Operacion -40:
+    1. Se lee nodo 8, nodo 2, nodo 0 y se da de baja el 40 produciendo underflow. Como no
+        tiene hermano izquierdo, y su hermano derecho está en el mínimo de claves, se fusionan
+        (nodo 0 y 4).
+    
+        8: 2 (70) 7
+
+        2: ???
+        7: 5 (90) 6 (120) 3 (210) 9 (300) 1
+
+        0: (50) 5
+        5: (70)(80) 6
+        6: (90)(100) 3
+        3: (120)(200) 9
+        9: (210)(220)(230)(240) 1
+        1: (400)(500) -1
+    
+    2. Al fusionarse, se propaga el underflow al padre (nodo 2), y como no tiene hermano
+        derecho, se redistribuyen los elementos del hermano izquierdo (nodo 7).
+
+        8: 2 (90) 7
+
+        2: 0 (70) 5
+        7: 6 (120) 3 (210) 9 (300) 1
+
+        0: (50) 5
+        5: (70)(80) 6
+        6: (90)(100) 3
+        3: (120)(200) 9
+        9: (210)(220)(230)(240) 1
+        1: (400)(500) -1

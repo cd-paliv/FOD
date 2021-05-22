@@ -1,0 +1,140 @@
+17. Dado el siguiente árbol B+ de orden 4, mostrar como quedaría el mismo luego de
+realizar las siguientes operaciones: +120, +110, +52, +70, +15, -45, -52, +22, +19, -66, -22, -19,
+- 23, -89.
+Política de resolución de underflows: derecha.
+
+    2: 0 (66) 1
+
+    0: (23)(45) 1 -> 1: (66) (67) (89)
+
+-----------------------------------------------x--------------------------------------------
+Operacion +120:
+    1. Se lee nodo 2, nodo 1 y se da de alta el 120 produciendo overflow. Se dividen las
+        claves del nodo 1 con un nuevo nodo (noo 3) y promociona la copia del 89.
+    
+        2: 0 (66) 1 (89) 3
+
+        0: (23)(45) 1 -> 1: (66)(67) 3 -> 3: (89)(120)
+
+Operacion +110:
+    1. Se lee nodo 2, nodo 3 y se da de alta el 110.
+    
+        2: 0 (66) 1 (89) 3
+
+        0: (23)(45) 1 -> 1: (66)(67) 3 -> 3: (89)(110)(120)
+
+Operacion +52:
+    1. Se lee nodo 2, nodo 0 y se da de alta el 52.
+    
+        2: 0 (66) 1 (89) 3
+
+        0: (23)(45)(52) 1 -> 1: (66)(67) 3 -> 3: (89)(110)(120)
+
+Operacion +70:
+    1. Se lee nodo 2, nodo 1 y se da de alta el 70.
+    
+        2: 0 (66) 1 (89) 3
+
+        0: (23)(45)(52) 1 -> 1: (66)(67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion +15:
+    1. Se lee nodo 2, nodo 0 y se da de alta el 15 produciendo overflow. Se genera el nodo
+        4 con el cual se dividen las claves del nodo 0, promocionando la copia del 45.
+    
+        2: 0 (45) 4 (66) 1 (89) 3
+
+        0: (15)(23) 4 -> 4: (45)(52) 1 -> 1: (66)(67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion -45:
+    1. Se lee nodo 2, nodo 4 y se da de baja el 45.
+    
+        2: 0 (45) 4 (66) 1 (89) 3
+
+        0: (15)(23) 4 -> 4: (52) 1 -> 1: (66)(67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion -52:
+    1. Se lee nodo 2, nodo 4 y se da de baja el 52 produciendo underflow. Se redistribuyen los
+        datos del hermano derecho (nodo 1) promocionando la copia del 67.
+    
+        2: 0 (45) 4 (67) 1 (89) 3
+
+        0: (15)(23) 4 -> 4: (66) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion +22:
+    1. Se lee nodo 2, nodo 0 y se da de alta el 22.
+    
+        2: 0 (45) 4 (67) 1 (89) 3
+
+        0: (15)(22)(23) 4 -> 4: (66) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion +19:
+    1. Se lee nodo 2, nodo 0 y se da de alta el 19 produciendo overflow. Se genera el nodo 5
+        con el cual se redistribuyen los datos del nodo 0.
+    
+        2: 0 (22) 5 (45) 4 (67) 1 (89) 3
+
+        0: (15)(19) 5 -> 5: (22)(23) 4 -> 4: (66) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+    
+    2. Al generarse el nodo 5 se propaga el overflow a la raíz (nodo 2). Por lo cual se genera
+        el nodo 6 con el cual se redistribuyen las copias, promocionando el 67 a la nueva
+        raíz (nodo 7).
+        
+        7: 2 (67) 6
+        
+        2: 0 (22) 5 (45) 4 | 6: 1 (89) 3
+
+        0: (15)(19) 5 -> 5: (22)(23) 4 -> 4: (66) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion -66:
+    1. Se lee nodo 7, nodo 2, nodo 4 y se da de baja el 66 produciendo underflow. Como no tiene
+        hermano derecho adyacente, se redistribuyen los datos de su hermano izquierdo (nodo 5).
+        Promociona la copia del 23, reemplazando el 45.
+    
+        7: 2 (67) 6
+        
+        2: 0 (22) 5 (23) 4 | 6: 1 (89) 3
+
+        0: (15)(19) 5 -> 5: (22) 4 -> 4: (23) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion -22:
+    1. Se lee nodo 7, nodo 2, nodo 5 y se da de baja el 22 produciendo underflow. Como su
+        hermano derecho está en el mínimo de elementos, se fusionan.
+    
+        7: 2 (67) 6
+        
+        2: 0 (22) 5 | 6: 1 (89) 3
+
+        0: (15)(19) 5 -> 5: (23) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion -19:
+    1. Se lee nodo 7, nodo 2, nodo 0 y se da de baja el 19.
+    
+        7: 2 (67) 6
+        
+        2: 0 (22) 5 | 6: 1 (89) 3
+
+        0: (15) 5 -> 5: (23) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion -23:
+    1. Se lee nodo 7, nodo 2, nodo 5 y se da de baja el 23 produciendo underflow. Como no tiene
+        hermano adyacente derecho se fusiona con el izquierdo.
+    
+        7: 2 (67) 6
+        
+        2: ???? | 6: 1 (89) 3
+
+        0: (15) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+    
+    2. Al dar de baja el nodo 5 se propaga el underflow al nodo 2, y como su hermano derecho
+        (nodo 6) está en el mínimo de elementos, se fusionan.
+        
+        2: 0 (67) 1 (89) 3
+
+        0: (15) 1 -> 1: (67)(70) 3 -> 3: (89)(110)(120)
+
+Operacion -89:
+    1. Se lee nodo 2, nodo 3 y se da de baja el 89.
+    
+        2: 0 (67) 1 (89) 3
+
+     -> 0: (15) 1 -> 1: (67)(70) 3 -> 3: (110)(120)

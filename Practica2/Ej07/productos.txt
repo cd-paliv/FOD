@@ -1,0 +1,8 @@
+1431 10 8 200.5
+Lavandina
+4321 10 9 1800.9
+Limpiador
+6753 15 5 100.3
+Cepillo
+9483 7 2 250.5
+Escoba

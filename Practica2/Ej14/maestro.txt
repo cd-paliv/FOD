@@ -1,0 +1,12 @@
+95 BuenosAires
+12 5 21
+12.25
+60 BuenosAires
+12 5 21
+16.45
+105 Paris
+7 6 21
+14.40
+50 Sidney
+10 7 21
+18.30
