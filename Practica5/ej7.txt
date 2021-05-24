@@ -17,6 +17,8 @@ Dirección Clave
     9       20
     10      
 
+DE = 4 / 1*11 = 0.36 = 36%
+
 -----------------------------------------------x--------------------------------------------
 Operacion +75:
     1. Se intenta dar de alta el 75 en la cubeta 9 produciendo colision. Se coloca en el siguiente

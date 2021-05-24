@@ -1,0 +1,146 @@
+14. Dado el archivo dispersado a continuación, grafique los estados sucesivos para las
+siguientes operaciones: +47, +63, +23, +50, +67, -23, -45.
+Técnica de resolución de colisiones: Dispersión Doble
+f1(x) = x MOD 11
+f2(x)= x MOD 7 + 1
+
+Dirección Clave
+    0       
+    1       45
+    2       
+    3       58
+    4       26
+    5       
+    6       61
+    7       
+    8       30
+    9       
+    10      
+
+-----------------------------------------------x--------------------------------------------
+Operacion +47:
+    1. Se intenta dar de alta el 47 en la dirección 3 produciendo colisión.
+        f2(x)= x MOD 7 + 1 = 5+1 = 6. Direccion base 3 + desplazamiento 6 = 9.
+        Se da de alta el 47 en la dirección 9.
+
+            Dirección Clave
+                0       
+                1       45
+                2       
+                3       58
+                4       26
+                5       
+                6       61
+                7       
+                8       30
+                9       47
+                10      
+
+Operacion +63:
+    1. Se intenta dar de alta el 63 en la dirección 8 produciendo colisión.
+        f2(x)= x MOD 7 + 1 = 0+1 = 1. Direccion base 8 + desplazamiento 1 = 9.
+        En la direccion 9 también se produce colisión. Hago otro desplazamiento (9+1) y se da
+        de alta el 63 en la direccion 10.
+
+            Dirección Clave
+                0       
+                1       45
+                2       
+                3       58
+                4       26
+                5       
+                6       61
+                7       
+                8       30
+                9       47
+                10      63
+
+Operacion +23:
+    1. Se intenta dar de alta el 23 en la dirección 1 produciendo colisión.
+        f2(x)= x MOD 7 + 1 = 2+1 = 3. Direccion base 1 + desplazamiento 3 = 4.
+        En la direccion 4 también se produce colisión. Hago otro desplazamiento (4+3) y se da
+        de alta el 23 en la direccion 7.
+
+            Dirección Clave
+                0       
+                1       45
+                2       
+                3       58
+                4       26
+                5       
+                6       61
+                7       23
+                8       30
+                9       47
+                10      63
+
+Operacion +50:
+    1. Se intenta dar de alta el 50 en la dirección 6 produciendo colisión.
+        f2(x)= x MOD 7 + 1 = 1+1 = 2. Direccion base 6 + desplazamiento 2 = 8.
+        En la direccion 8 también se produce colisión. Hago otro desplazamiento (8+2) y la
+        dirección 10 también produce colision. Sigo desplazando hasta llegar a la cubeta 5,
+        donde se da de alta la clave.
+
+            Dirección Clave
+                0       
+                1       45
+                2       
+                3       58
+                4       26
+                5       50
+                6       61
+                7       23
+                8       30
+                9       47
+                10      63
+
+Operacion +67:
+    1. Se intenta dar de alta el 67 en la dirección 1 produciendo colisión.
+        f2(x)= x MOD 7 + 1 = 4+1 = 5. Direccion base 1 + desplazamiento 5 = 6.
+        En la direccion 6 también se produce colisión. Hago otro desplazamiento (6+5) y se
+        da de alta la clave en la posición 0.
+
+            Dirección Clave
+                0       67
+                1       45
+                2       
+                3       58
+                4       26
+                5       50
+                6       61
+                7       23
+                8       30
+                9       47
+                10      63
+
+Operacion -23:
+    1. Se da de baja el 23 y coloco una marca de inutilización en la cubeta 7.
+
+            Dirección Clave
+                0       67
+                1       45
+                2       
+                3       58
+                4       26
+                5       50
+                6       61
+                7       ###
+                8       30
+                9       47
+                10      63
+
+Operacion -45:
+    1. Se da de baja el 45 y coloco una marca de inutilización en la cubeta 1.
+
+            Dirección Clave
+                0       67
+                1       ###
+                2       
+                3       58
+                4       26
+                5       50
+                6       61
+                7       ###
+                8       30
+                9       47
+                10      63

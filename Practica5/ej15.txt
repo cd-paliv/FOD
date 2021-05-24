@@ -1,0 +1,130 @@
+15. Se debe crear y cargar un archivo directo con capacidad para 2 registros con
+dispersión doble para organizar registros en saturación, con los 9 registros cuyas claves
+se listan a continuación y de manera que su densidad de empaquetamiento resulte del
+75%: +347, +498, +729, +222, +113, +885, +431, +593, +709.
+Usar como segunda función de dispersión el módulo 5 más 1.
+
+DE = 75% = 9 / 2*x  ->  x = 6
+Técnica de resolución de colisiones: Dispersión Doble.
+f(x) = x MOD N  ->  N = 6 (0..5)
+f2(x) = (x MOD 5) + 1
+
+Dirección Clave Clave
+    0       
+    1       
+    2       
+    3       
+    4       
+    5       
+
+
+
+-----------------------------------------------x--------------------------------------------
+Operacion +347:
+    1. Se da de alta la clave en la cubeta 5.
+
+            Dirección Clave Clave
+                0     
+                1     
+                2     
+                3     
+                4     
+                5     347    
+
+Operacion +498:
+    1. Se da de alta la clave en la cubeta 0.
+
+            Dirección Clave Clave
+                0     498    
+                1     
+                2     
+                3     
+                4     
+                5     347    
+
+Operacion +729:
+    1. Se da de alta la clave en la cubeta 3.
+
+            Dirección Clave Clave
+                0     498    
+                1     
+                2     
+                3     729    
+                4     
+                5     347    
+
+Operacion +222:
+    1. Se da de alta la clave en la cubeta 0.
+
+            Dirección Clave Clave
+                0     498    222
+                1     
+                2     
+                3     729    
+                4     
+                5     347    
+
+Operacion +113:
+    1. Se da de alta la clave en la cubeta 5.
+
+            Dirección Clave Clave
+                0     498    222
+                1     
+                2     
+                3     729    
+                4     
+                5     347    113
+
+Operacion +885:
+    1. Se da de alta la clave en la cubeta 3.
+
+            Dirección Clave Clave
+                0     498    222
+                1     
+                2     
+                3     729    885
+                4     
+                5     347    113
+
+Operacion +431:
+    1. Se intenta dar de alta la clave en la cubeta 5, produciendo colisión.
+        f2(x) = (x MOD 5) + 1 = 2. Direccion base 5 + desplazamiento 2 = 7 (dirección 1).
+        Se da de alta la clave en la direccion 1.
+
+            Dirección Clave Clave
+                0     498    222
+                1     431    
+                2     
+                3     729    885
+                4     
+                5     347    113
+
+
+Operacion +593:
+    1. Se intenta dar de alta la clave en la cubeta 5, produciendo colisión.
+        f2(x) = (x MOD 5) + 1 = 4. Direccion base 5 + desplazamiento 4 = 9 (dirección 3).
+        En la direccion 3 también se produce un desbordamiento, por lo cual se vuelve a
+        desplazar (3+4=7 - dirección 1). Se da de alta la clave.
+
+            Dirección Clave Clave
+                0     498    222
+                1     431    593
+                2     
+                3     729    885
+                4     
+                5     347    113
+
+Operacion +709:
+    1. Se intenta dar de alta la clave en la cubeta 1, produciendo colisión.
+        f2(x) = (x MOD 5) + 1 = 5. Direccion base 1 + desplazamiento 5 = 6 (dirección 0).
+        En la direccion 0 también se produce un desbordamiento, por lo cual se vuelve a
+        desplazar (0+5=5). Se vuelve a producir desbordamiento, por lo cual desplazo la clave
+        una vez más (5+5=10 - dir 4). Se da de alta la clave en la direccion 4.
+
+            Dirección Clave Clave
+                0     498    222
+                1     431    593
+                2     
+                3     729    885
+                4     709
+                5     347    113
