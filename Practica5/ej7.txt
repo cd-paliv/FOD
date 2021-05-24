@@ -1,0 +1,93 @@
+7. Dado el archivo dispersado a continuación, grafique los estados sucesivos, indique lecturas y
+escrituras y calcule la densidad de empaquetamiento para las siguientes operaciones:
+    +75, +53, -19, -16
+Técnica de resolución de colisiones: Saturación progresiva.
+f(x) = x MOD 11
+
+Dirección Clave
+    0       
+    1       12
+    2       
+    3       14
+    4       
+    5       16
+    6       
+    7       18
+    8       19
+    9       20
+    10      
+
+-----------------------------------------------x--------------------------------------------
+Operacion +75:
+    1. Se intenta dar de alta el 75 en la cubeta 9 produciendo colision. Se coloca en el siguiente
+        espacio disponible (direccion 10). Es una clave intrusa.
+
+        Dirección Clave
+            0       
+            1       12
+            2       
+            3       14
+            4       
+            5       16
+            6       
+            7       18
+            8       19
+            9       20
+            10     *75
+    
+     l9, l10, e10
+    
+Operacion +53:
+    1. Se intenta dar de alta el 53 en la cubeta 9 produciendo colision. Se coloca en el siguiente
+        espacio disponible (direccion 0). Es una clave intrusa.
+
+        Dirección Clave
+            0      *53
+            1       12
+            2       
+            3       14
+            4       
+            5       16
+            6       
+            7       18
+            8       19
+            9       20
+            10     *75
+    
+     l9, l10, l0, e0
+
+Operacion -19:
+    1. Se da de baja el 19 en la direccion 8.
+
+        Dirección Clave
+            0      *53
+            1       12
+            2       
+            3       14
+            4       
+            5       16
+            6       
+            7       18
+            8       
+            9       20
+            10     *75
+    
+     l8, e8
+
+Operacion -16:
+    1. Se da de baja el 16 en la posiccion 5.
+    
+        Dirección Clave
+            0      *53
+            1       12
+            2       
+            3       14
+            4       
+            5       
+            6       
+            7       18
+            8       
+            9       20
+            10     *75
+    
+     l5, e5

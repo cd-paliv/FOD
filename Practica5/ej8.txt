@@ -1,0 +1,199 @@
+8. Dado el archivo dispersado a continuación, grafique los estados sucesivos para las
+siguientes operaciones: +20, +55, +36, +45, +50, -39, -29.
+Técnica de resolución de colisiones: Saturación progresiva.
+
+f(x) = x MOD 19
+
+Dirección Clave
+    0       19
+    1       39
+    2       59
+    3       
+    4       23
+    5       
+    6       
+    7       64
+    8       
+    9       47
+    10      29
+    11      
+    12      69
+    13      
+    14      
+    15      34
+    16      
+    17      
+    18      56
+
+-----------------------------------------------x--------------------------------------------
+Operacion +20:
+    1. Se intenta dar de alta la clave 20 en la direccion 1 produciendo colision. Se busca el
+        siguiente espacio disponible (3). Es una clave intrusa.
+
+        Dirección Clave
+            0       19
+            1       39
+            2       59
+            3      *20  -1
+            4       23
+            5       
+            6       
+            7       64
+            8       
+            9       47
+            10      29
+            11      
+            12      69
+            13      
+            14      
+            15      34
+            16      
+            17      
+            18      56
+
+Operacion +55:
+    1. Se da de alta el 55 en la direccion 7.
+    
+        Dirección Clave
+            0       19
+            1       39
+            2       59
+            3      *20  -1
+            4       23
+            5       
+            6       
+            7       64
+            8       
+            9       47
+            10      29
+            11      
+            12      69
+            13      
+            14      
+            15      34
+            16      
+            17      55
+            18      56
+
+Operacion +36:
+    1. Se intenta dar de alta la clave 36 en la direccion 17 produciendo colision. Se busca el
+        siguiente espacio disponible (5). Es una clave intrusa.
+    
+        Dirección Clave
+            0       19
+            1       39
+            2       59
+            3      *20  -1
+            4       23
+            5      *36  -17
+            6       
+            7       64
+            8       
+            9       47
+            10      29
+            11      
+            12      69
+            13      
+            14      
+            15      34
+            16      
+            17      55
+            18      56
+
+Operacion +45:
+    1. Se intenta dar de alta la clave 45 en la direccion 7 produciendo colision. Se busca el
+        siguiente espacio disponible (8). Es una clave intrusa.
+    
+        Dirección Clave
+            0       19
+            1       39
+            2       59
+            3      *20  -1
+            4       23
+            5      *36  -17
+            6       
+            7       64
+            8      *45  -7
+            9       47
+            10      29
+            11      
+            12      69
+            13      
+            14      
+            15      34
+            16      
+            17      55
+            18      56
+
+Operacion +50:
+    1. Se intenta dar de alta la clave 50 en la direccion 12 produciendo colision. Se busca el
+        siguiente espacio disponible (13). Es una clave intrusa.
+    
+        Dirección Clave
+            0       19
+            1       39
+            2       59
+            3      *20  -1
+            4       23
+            5      *36  -17
+            6       
+            7       64
+            8      *45  -7
+            9       47
+            10      29
+            11      
+            12      69
+            13     *50  -12
+            14      
+            15      34
+            16      
+            17      55
+            18      56
+
+Operacion -39:
+    1. Se da de baja el 39 en la direccion 1, como tiene sinónimos coloco la marca.
+    
+        Dirección Clave
+            0       19
+            1       ###
+            2       59
+            3      *20  -1
+            4       23
+            5      *36  -17
+            6       
+            7       64
+            8      *45  -7
+            9       47
+            10      29
+            11      
+            12      69
+            13     *50  -12
+            14      
+            15      34
+            16      
+            17      55
+            18      56
+
+Operacion -29:
+    1. Se da de baja el 29 en la direccion 10.
+    
+        Dirección Clave
+            0       19
+            1       ###
+            2       59
+            3      *20  -1
+            4       23
+            5      *36  -17
+            6       
+            7       64
+            8      *45  -7
+            9       47
+            10      
+            11      
+            12      69
+            13     *50  -12
+            14      
+            15      34
+            16      
+            17      55
+            18      56

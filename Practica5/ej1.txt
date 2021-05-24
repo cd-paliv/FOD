@@ -1,0 +1,11 @@
+Función de dispersión: Caja negra que a partir de una clave genera la dirección
+    física donde debe almacenarse el registro.
+
+    Tipos de dispersión:
+        -Direccionamiento estático
+            El espacio disponible para dispersar los registros del archivo está
+                fijado previamente.
+        -Direccionamiento dinámico:
+            El espacio disponible para dispersar los registros del archivo aumenta
+                o disminuye en función de las necesidades.
+        -?

@@ -1,0 +1,8 @@
+● Saturación progresiva:
+
+● Saturación progresiva encadenada:
+
+● Saturación progresiva encadenada con área de desborde separada:
+
+● Dispersión doble:
+    

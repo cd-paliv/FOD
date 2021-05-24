@@ -1,0 +1,95 @@
+5. Dado el archivo dispersado a continuación, grafique los estados sucesivos, indique lecturas
+y escrituras y calcule la densidad de empaquetamiento para las siguientes operaciones:
+    +31, +64, -30, -12
+Técnica de resolución de colisiones: Saturación progresiva.
+f(x) = x MOD 11
+
+Dirección | Clave
+    0     |  
+    1     |  12
+    2     |  
+    3     |  14
+    4     |  
+    5     |  49
+    6     |  
+    7     |  29
+    8     |  30
+    9     |  20
+    10    |  
+
+DE = 4 / 11 * 1 = 0.36 = 36%
+
+-----------------------------------------------x--------------------------------------------
+Operacion +31:
+    1. Se intenta dar de alta el 31 en el nodo 9 produciendo colisión, por lo cual se posiciona
+        en la siguiente cubeta que tenga espacio para almacenarlo (10). Es una clave intrusa.
+
+            Dirección | Clave
+                0     |  
+                1     |  12
+                2     |  
+                3     |  14
+                4     |  
+                5     |  49
+                6     |  
+                7     |  29
+                8     |  30
+                9     |  20
+                10    |  31
+
+     l9, l10, e10
+
+Operacion +64:
+    1. Se intenta dar de alta el 64 en el nodo 9 produciendo colisión. Se busca la siguiente
+        cubeta con espacio para almacenarlo (0). Es una clave intrusa.
+
+            Dirección | Clave
+                0     |  64
+                1     |  12
+                2     |  
+                3     |  14
+                4     |  
+                5     |  49
+                6     |  
+                7     |  29
+                8     |  30
+                9     |  20
+                10    |  31
+    
+     l9, l10, l0, e0
+
+Operacion -30:
+    1. Se da de baja el 30.
+
+            Dirección | Clave
+                0     |  64
+                1     |  12
+                2     |  
+                3     |  14
+                4     |  
+                5     |  49
+                6     |  
+                7     |  29
+                8     |  
+                9     |  20
+                10    |  31
+    
+     l8, l9, e8
+
+Operacion -12:
+    1. Se da de baja el 12.
+
+            Dirección | Clave
+                0     |  64
+                1     |  
+                2     |  
+                3     |  14
+                4     |  
+                5     |  49
+                6     |  
+                7     |  29
+                8     |  ###
+                9     |  20
+                10    |  31
+    
+     l1, (l2?), e1

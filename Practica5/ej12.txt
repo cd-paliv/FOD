@@ -1,0 +1,72 @@
+12. Dado el archivo dispersado a continuación, grafique los estados sucesivos para las
+siguientes operaciones: +23, +56, +36.
+Técnica de resolución de colisiones: Saturación progresiva encadenada.
+f(x) = x MOD 11
+
+Dirección Clave Enlace
+    0       22    -1
+    1       34    -1
+    2       46    -1
+    3             -1
+    4       59    -1
+    5             -1
+    6             -1
+    7       40    -1
+    8             -1
+    9             -1
+    10            -1
+
+-----------------------------------------------x--------------------------------------------
+Operacion +23:
+    1. Se intenta dar de alta el 23 en la direccion 1 produciendo colision. Se busca la siguiente
+        direccion con espacio disponible (3) y se da de alta la clave, actualizando el enlace
+        de la cubeta 1.
+
+            Dirección Clave Enlace
+                0       22    -1
+                1       34     3
+                2       46    -1
+                3       23    -1
+                4       59    -1
+                5             -1
+                6             -1
+                7       40    -1
+                8             -1
+                9             -1
+                10            -1
+
+Operacion +56:
+    1. Se intenta dar de alta el 56 en la direccion 1 produciendo colision. Se busca la siguiente
+        direccion con espacio disponible (5) y se da de alta la clave, actualizando el enlace
+        de la cubeta 1 y 5.
+
+            Dirección Clave Enlace
+                0       22    -1
+                1       34     5
+                2       46    -1
+                3       23    -1
+                4       59    -1
+                5       56     3
+                6             -1
+                7       40    -1
+                8             -1
+                9             -1
+                10            -1
+
+Operacion +36:
+    1. Se intenta dar de alta el 36 en la direccion 3 produciendo colision. Se busca la siguiente
+        direccion con espacio disponible (6) y se da de alta la clave, actualizando el enlace
+        de la cubeta 1 y 6.
+
+            Dirección Clave Enlace
+                0       22    -1
+                1       34     5
+                2       46    -1
+                3       23     6
+                4       59    -1
+                5       56     3
+                6       36    -1
+                7       40    -1
+                8             -1
+                9             -1
+                10            -1

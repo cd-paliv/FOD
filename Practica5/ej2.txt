@@ -1,0 +1,15 @@
+Sinónimo: Elemento que se tiene la misma dirección base que otro (su sinónimo).
+
+Colisión: Situación en la que un registro es asignado, por función de
+    dispersión, a una dirección que ya posee uno o más registros.
+
+Registro en saturación:
+
+
+---------------------------------------------------------------------------
+Cadena de sinónimos: Todos los elementos de una misma dirección base.
+
+Clave intrusa: clave que no está ubicada en su dirección base.
+
+Dirección base: el valor que da la función de dispersión al aplicarlo a
+    la clave.

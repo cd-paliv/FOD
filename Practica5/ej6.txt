@@ -1,0 +1,84 @@
+6.Dado el archivo dispersado a continuación, grafique los estados sucesivos para las
+siguientes operaciones: +90, +23, +20, +97, .
+Técnica de resolución de colisiones: Saturación progresiva.
+f(x) = x MOD 11
+
+Dirección Clave Clave
+    0       55
+    1       78    34
+    2       57
+    3
+    4       81
+    5       27
+    6       50
+    7       95
+    8
+    9       31
+    10      32    21
+
+-----------------------------------------------x--------------------------------------------
+Operacion +90:
+    1. Se da de alta el 90 en la cubeta 2.
+
+        Dirección Clave Clave
+            0       55
+            1       78    34
+            2       57    90
+            3
+            4       81
+            5       27
+            6       50
+            7       95
+            8
+            9       31
+            10      32    21
+
+Operacion +23:
+    1. Se intenta dar de alta el 23 en la cubeta 1 produciendo colision. Se coloca la clave
+        intrusa en la dirección 3.
+
+        Dirección Clave Clave
+            0       55
+            1       78    34
+            2       57    90
+            3      *23    
+            4       81    
+            5       27    
+            6       50    
+            7       95    
+            8       
+            9       31    
+            10      32    21
+
+Operacion +20:
+    1. Se da de alta el 20 en la cubeta 9.
+
+        Dirección Clave Clave
+            0       55
+            1       78    34
+            2       57    90
+            3      *23    
+            4       81    
+            5       27    
+            6       50    
+            7       95    
+            8       
+            9       31    20
+            10      32    21
+
+Operacion +97:
+    1. Se intenta dar de alta el 97 en la cubeta 9 produciendo colision. Se coloca la clave
+        intrusa en el siguiente espacio libre (dirección 0).
+
+        Dirección Clave Clave
+            0       55    97
+            1       78    34
+            2       57    90
+            3      *23    
+            4       81    
+            5       27    
+            6       50    
+            7       95    
+            8       
+            9       31    20
+            10      32    21

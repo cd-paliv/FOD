@@ -1,0 +1,108 @@
+10.Dado el archivo dispersado a continuación, grafique los estados sucesivos para las
+siguientes operaciones: +34, +78, +56, +59, +26.
+Técnica de resolución de colisiones: Saturación progresiva encadenada.
+f(x) = x MOD 11
+
+Dirección Enlace Clave
+    0       -1    
+    1       -1    23
+    2       -1    
+    3       -1    80
+    4       -1    
+    5       -1    38
+    6       -1    
+    7       -1    95
+    8       -1    
+    9       -1    42
+    10      -1    
+
+-----------------------------------------------x--------------------------------------------
+Operacion +34:
+    1. Se intenta dar de alta el 34 en la direccion 1 produciendo colision. Se busca la siguiente
+        direccion con espacio disponible (2) y se da de alta la clave, actualizando el enlace
+        de la cubeta 1.
+
+            Dirección Enlace Clave
+                0       -1    
+                1        2    23
+                2       -1    34
+                3       -1    80
+                4       -1    
+                5       -1    38
+                6       -1    
+                7       -1    95
+                8       -1    
+                9       -1    42
+                10      -1    
+
+Operacion +78:
+    1.Se intenta dar de alta el 78 en la direccion 1 produciendo colision. Se busca la siguiente
+        direccion con espacio disponible (4) y se da de alta la clave, actualizando el enlace
+        de la cubeta 1 y 4.
+
+            Dirección Enlace Clave
+                0       -1    
+                1        4    23
+                2       -1    34
+                3       -1    80
+                4        2    78
+                5       -1    38
+                6       -1    
+                7       -1    95
+                8       -1    
+                9       -1    42
+                10      -1    
+
+Operacion +56:
+    1.Se intenta dar de alta el 56 en la direccion 1 produciendo colision. Se busca la siguiente
+        direccion con espacio disponible (6) y se da de alta la clave, actualizando el enlace
+        de la cubeta 1 y 6.
+
+            Dirección Enlace Clave
+                0       -1    
+                1        6    23
+                2       -1    34
+                3       -1    80
+                4        2    78
+                5       -1    38
+                6        4    56
+                7       -1    95
+                8       -1    
+                9       -1    42
+                10      -1    
+
+Operacion +59:
+    1.Se intenta dar de alta el 59 en la direccion 4 produciendo colision. Se busca la siguiente
+        direccion con espacio disponible (8) y se da de alta la clave, actualizando el enlace
+        de la cubeta 4 y 8.
+
+            Dirección Enlace Clave
+                0       -1    
+                1        6    23
+                2       -1    34
+                3       -1    80
+                4        8    78
+                5       -1    38
+                6        4    56
+                7       -1    95
+                8        2    59
+                9       -1    42
+                10      -1    
+
+Operacion +26:
+    1.Se intenta dar de alta el 26 en la direccion 4 produciendo colision. Se busca la siguiente
+        direccion con espacio disponible (10) y se da de alta la clave, actualizando el enlace
+        de la cubeta 4 y 10.
+
+            Dirección Enlace Clave
+                0       -1    
+                1        6    23
+                2       -1    34
+                3       -1    80
+                4       10    78
+                5       -1    38
+                6        4    56
+                7       -1    95
+                8        2    59
+                9       -1    42
+                10       8    26
