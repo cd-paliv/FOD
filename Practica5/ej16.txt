@@ -1,8 +1,0 @@
-16. Realice el proceso de dispersión mediante el método de hashing extensible,
-sabiendo que cada registro tiene capacidad para dos claves. El número natural indica
-el orden de llegada de las mismas.
-
-1 UNLP 00001011 | 2 UNSA 01010010
-3 UNER 10101110 | 4 UNS 00011011
-5 UNSL 01100100 | 6 UNLU 11000100
-7 UNRN 11100101 | 8 UNMDP 00111001
