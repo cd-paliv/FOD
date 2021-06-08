@@ -111,7 +111,7 @@ Operacion +45:
 
 Operacion -56:
     1. f(56) = 1. Se encuentra la clave y se da de baja, debiendo actualizar los sinónimos que 
-        se encuentran en la tabla. Se actualizan enlaces.
+        se encuentran en la tabla.
         
         Dirección Enlace Clave
             0       -1

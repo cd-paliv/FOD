@@ -111,9 +111,7 @@ begin
 end;
 
 procedure maestro1(var mae: maestro; var det: detalle);
-var regm: alumno;
-	regd: finalocursada;
-	actual: integer;
+var regm: alumno; regd: finalocursada; actual: integer;
 begin
 	reset(mae); //abro
 	reset(det); //abro
@@ -121,15 +119,15 @@ begin
 	leer(det, regd);
 	while (regd.cod <> valoralto) do begin
 		actual:= regd.cod;
-		while (actual = regd.cod) do begin //mientras el alumno sea el mismo actualizo datos
+		while (actual = regd.cod) do begin //mientras el cod sea el mismo actualizo datos
 			if (regd.foc = 'Tiene-final') then regm.cantF += 1
 			else regm.cantSF += 1;
 			leer(det, regd);
 		end;
-		while (regm.cod <> actual) do //busco el alumno en el maestro
+		while (regm.cod <> actual) do //busco el cod en el maestro
 			read(mae, regm);
-		seek(mae, filepos(mae)-1);
-		write(mae, regm); //lo guardo
+		seek(mae, filepos(mae)-1);//se asume que SÍ O SÍ se encuentra el cod en mae
+		write(mae, regm); //lo actualizo
 		if not eof(mae) then read(mae, regm); //avanzo en el maestro
 	end;
 	close(det);

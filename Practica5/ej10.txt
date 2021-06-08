@@ -18,91 +18,95 @@ Dirección Enlace Clave
 
 -----------------------------------------------x--------------------------------------------
 Operacion +34:
-    1. Se intenta dar de alta el 34 en la direccion 1 produciendo colision. Se busca la siguiente
-        direccion con espacio disponible (2) y se da de alta la clave, actualizando el enlace
-        de la cubeta 1.
-
-            Dirección Enlace Clave
-                0       -1    
-                1        2    23
-                2       -1    34
-                3       -1    80
-                4       -1    
-                5       -1    38
-                6       -1    
-                7       -1    95
-                8       -1    
-                9       -1    42
-                10      -1    
+    1. f(34) = 1. La dirección 1 está llena por lo cual se produce overflow. Se busca la sig
+        dirección con espacio libre y se actualiza el enlace de la dirección base.
+    
+        Dirección Enlace Clave
+            0       -1    
+            1        2    23
+            2       -1    34*
+            3       -1    80
+            4       -1    
+            5       -1    38
+            6       -1    
+            7       -1    95
+            8       -1    
+            9       -1    42
+            10      -1    
+    L1, L2, E2, E1
 
 Operacion +78:
-    1.Se intenta dar de alta el 78 en la direccion 1 produciendo colision. Se busca la siguiente
-        direccion con espacio disponible (4) y se da de alta la clave, actualizando el enlace
-        de la cubeta 1 y 4.
+    1. f(78) = 1. Se produce overflow por lo cual se da de alta el 78 en la direccion 4.
+        Se actualizan los enlaces de la dirección base y de la actual.
+    
+        Dirección Enlace Clave
+            0       -1    
+            1        4    23
+            2       -1    34*
+            3       -1    80
+            4        2    78*
+            5       -1    38
+            6       -1    
+            7       -1    95
+            8       -1    
+            9       -1    42
+            10      -1    
 
-            Dirección Enlace Clave
-                0       -1    
-                1        4    23
-                2       -1    34
-                3       -1    80
-                4        2    78
-                5       -1    38
-                6       -1    
-                7       -1    95
-                8       -1    
-                9       -1    42
-                10      -1    
+    L1, L2, L3, L4, E4, E1
 
 Operacion +56:
-    1.Se intenta dar de alta el 56 en la direccion 1 produciendo colision. Se busca la siguiente
-        direccion con espacio disponible (6) y se da de alta la clave, actualizando el enlace
-        de la cubeta 1 y 6.
+    1. f(56) = 1. Se produce overflow, se da de alta la clave en la direccion 6 y se 
+        actualizan enlaces.
 
-            Dirección Enlace Clave
-                0       -1    
-                1        6    23
-                2       -1    34
-                3       -1    80
-                4        2    78
-                5       -1    38
-                6        4    56
-                7       -1    95
-                8       -1    
-                9       -1    42
-                10      -1    
+        Dirección Enlace Clave
+            0       -1    
+            1        6    23
+            2       -1    34*
+            3       -1    80
+            4        2    78*
+            5       -1    38
+            6        4    56*
+            7       -1    95
+            8       -1    
+            9       -1    42
+            10      -1    
+        
+    L1, L2, L3, L4, L5, L6, E6, E1
 
 Operacion +59:
-    1.Se intenta dar de alta el 59 en la direccion 4 produciendo colision. Se busca la siguiente
-        direccion con espacio disponible (8) y se da de alta la clave, actualizando el enlace
-        de la cubeta 4 y 8.
+    1. f(59) = 4. En la dirección 4 se encuentra una clave intrusa, por lo cual se busca
+        una nueva dirección para ella y se coloca la actual en su dirección base. Se actualizan
+        enlaces de la direccion 4, 6 y 8.
 
-            Dirección Enlace Clave
-                0       -1    
-                1        6    23
-                2       -1    34
-                3       -1    80
-                4        8    78
-                5       -1    38
-                6        4    56
-                7       -1    95
-                8        2    59
-                9       -1    42
-                10      -1    
-
+        Dirección Enlace Clave
+            0       -1    
+            1        6    23
+            2       -1    34*
+            3       -1    80
+            4       -1    59
+            5       -1    38
+            6        8    56*
+            7       -1    95
+            8        2    78*
+            9       -1    42
+            10      -1    
+        
+        L4, L5, L6, L7, L8, E8, E6, E4
 Operacion +26:
-    1.Se intenta dar de alta el 26 en la direccion 4 produciendo colision. Se busca la siguiente
-        direccion con espacio disponible (10) y se da de alta la clave, actualizando el enlace
-        de la cubeta 4 y 10.
+    1. f(26) = 4. La dirección 4 está llena produciendo overflow, se busca la sig direccion
+        con espacio libre y se da de alta. Se actualiza enlace de dirección base y actual.
+    
+        Dirección Enlace Clave
+            0       -1    
+            1        6    23
+            2       -1    34*
+            3       -1    80
+            4       10    59
+            5       -1    38
+            6        8    56*
+            7       -1    95
+            8        2    78*
+            9       -1    42
+            10      -1    26*
 
-            Dirección Enlace Clave
-                0       -1    
-                1        6    23
-                2       -1    34
-                3       -1    80
-                4       10    78
-                5       -1    38
-                6        4    56
-                7       -1    95
-                8        2    59
-                9       -1    42
-                10       8    26
+        L4, L5, L6, L7, L8, L9, L10, E10, E4

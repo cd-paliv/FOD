@@ -14,7 +14,6 @@ ocurrencia. Política de resolución underflow derecha.
 ORDEN: 6.
 CANT MÍNIMA DE CLAVES: (6/2)-1 = 2.
 CANT MÁX DE CLAVES: 5.
-CANT MÁX DE HIJOS: 6
 Política underflow: derecha.
 
 -----------------------------------------------x--------------------------------------------
@@ -48,6 +47,8 @@ Operacion +159:
         5: (145)(153)(158) 7
         7: (159)(160)(177) 6
         6: (179)(190) -1
+    
+    L2, L5, E5, E7, E2, E8, E9.
 
 Operacion -5:
     1. Se lee nodo 9, nodo 2, nodo 0 y se da de baja el 5 produciendo underflow. Como su
@@ -64,6 +65,8 @@ Operacion -5:
         5: (145)(153)(158) 7
         7: (159)(160)(177) 6
         6: (179)(190) -1
+    
+    L9, L2, L0, L1, E0, E1, E2.
 
 Operacion -190:
     1. Se lee nodo 9, nodo 8, nodo 6 y se da de baja el 190, produciendo underflow. Como no
@@ -81,3 +84,5 @@ Operacion -190:
         5: (145)(153)(158) 7
         7: (159)(160) 6
         6: (177)(179) -1
+
+    L9, L8, L6, L7, E7, E6, E8

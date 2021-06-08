@@ -124,7 +124,8 @@ begin
 	reset(a);
 	writeln('Ingresar el nombre del celular al que le desea modificar el stock disponible | fin para terminar');
 	read(nom);
-	while(not eof(a) AND (nom <> fin)) do begin //modifico hasta que el usuario ingrese -1
+	while(not eof(a) AND (nom <> fin)) do begin //modifico hasta que el usuario ingrese fin
+		//seek(a, 0);
 		read(a, x);
 		while (not eof(a) AND (nom <> x.nom)) do
 			read(a, x); //mientras no encuentre el dato al que debo modificar, recorro
@@ -133,7 +134,7 @@ begin
 			writeln('Ingrese el nuevo stock: ');
 			readln(x.sdis);
 			seek(a, filepos(a)-1); //voy a la pos del archivo que leí
-			write(a, x); //y modifico la edad
+			write(a, x); //y modifico
 		end;
 		writeln('Ingresar el nombre del celular al que le desea modificar el stock disponible | fin para terminar');
 		read(nom);

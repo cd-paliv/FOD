@@ -54,7 +54,7 @@ begin
 	writeln('-Ingrese nueva novela para agregar al archivo-');
 	LeerD(nuevoReg);
 	read(a, reg); //leo la cabecera
-	if(reg.cod < 0) then begin //si tengo registros eliminados pongo el regnue en esa pos
+	if(reg.cod < 0) then begin //si tengo registros eliminados pongo el nuevoReg en esa pos
 		seek(a, reg.cod * -1); //hago la pos guardada en la cabecera positiva y voy a esa
 		leer(a, reg); //leo el reg a guardado ahí para reemplazar la cabecera
 		seek(a, filepos(a)-1);
