@@ -3,7 +3,7 @@ Sinónimo: Elemento que se tiene la misma dirección base que otro (su sinónimo
 Colisión: Situación en la que un registro es asignado, por función de
     dispersión, a una dirección que ya posee uno o más registros.
 
-Registro en saturación:
+Registro en saturación: registro con el cual se produce overflow?
 
 
 ---------------------------------------------------------------------------
