@@ -71,6 +71,27 @@ begin
 	close(a);
 end;
 
+procedure darBajaLogica2(var a:archivo);
+var	reg: ave;
+	cod: Longint;
+begin
+	write('Realizando bajas, ingrese codigo de ave a eliminar (500.000 para finalizar): '); readln(cod);
+	reset(a);
+	while (cod <> 500000) do begin //recorro todo el archivo hasta eliminar todas las ocurrencias del reg
+		while not eof(a) do begin
+			read(a, reg);
+			if(reg.cod = cod) then begin
+				seek(a, filepos(a) - 1);
+				reg.cod:= -1;
+				write(a, reg);
+			end;
+		end;
+		seek(a, 0); //voy al principio porque no está ordenado
+		write('Siguiendo con bajas, ingrese el codigo de un ave a eliminar: '); readln(cod);
+	end;
+	close(a);
+end;
+
 {compactar}
 procedure darBajaFisica(var a:archivo);
 var	reg: ave;
@@ -82,7 +103,7 @@ begin
 		read(a, reg);
 		if(reg.cod = -1) then begin
 			pos:= filepos(a) - 1;
-			seek(a, filesize(a) -1);
+			seek(a, filesize(a) -1); //voy al ult elemento del archivo
 			read(a, reg);
 			i:= 0;
 			while(reg.cod = -1) do begin

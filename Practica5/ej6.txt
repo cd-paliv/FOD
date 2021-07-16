@@ -34,7 +34,7 @@ Operacion +90:
             10      32    21
 
 Operacion +23:
-    1. Se intenta dar de alta el 23 en la cubeta 1 produciendo colision. Se coloca la clave
+    1. Se intenta dar de alta el 23 en la cubeta 1 produciendo colision y ov. Se coloca la clave
         intrusa en la dirección 3.
 
         Dirección Clave Clave
@@ -71,9 +71,9 @@ Operacion +97:
         intrusa en el siguiente espacio libre (dirección 0).
 
         Dirección Clave Clave
-            0       55    97
+            0       55   *97
             1       78    34
-            2       57    90
+            2       57	  90
             3      *23    
             4       81    
             5       27    

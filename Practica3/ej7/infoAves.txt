@@ -6,7 +6,7 @@ Playa
 Avestruz
 Mnie
 Africa
-1234 Larus
+1023 Larus
 Gaviota reidora
 No sabe volar bien
 Playa
@@ -14,7 +14,7 @@ Playa
 Paloma
 Ave muy fea
 Mundo
-1678 Larus
+1023 Larus
 Gaviota sombria
 No sabe volar bien
 Playa
