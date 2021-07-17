@@ -1,0 +1,6 @@
+Vuelo a Aruba el 20191108 a las 2200hs:
+Advertencia -> Asientos disponibles: 30 | Cant. minima: 50
+Vuelo a Buenos Aires el 20191007 a las 1400hs:
+Advertencia -> Asientos disponibles: 20 | Cant. minima: 50
+Vuelo a Buenos Aires el 20191111 a las 1215hs:
+Advertencia -> Asientos disponibles: 40 | Cant. minima: 50

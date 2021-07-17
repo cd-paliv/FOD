@@ -1,0 +1,8 @@
+1 6500 Planchita
+200 70 Color Negro Marca Garnier
+2 7000 Lavarropas
+200 150 Color blanco Marca Dream
+3 20000 heladera
+103 120 Color gris Marca Philco
+4 4000 cafetera
+52 230 Color negro Marca Osram

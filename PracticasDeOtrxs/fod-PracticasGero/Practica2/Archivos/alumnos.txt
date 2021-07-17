@@ -1,0 +1,10 @@
+1 9 Geronimo
+9 Vega
+2 7 Genaro
+6 Lopez
+3 12 Liten
+10 Georgalos
+4 5 Rookie
+0 Nubin
+6 4 Tomi
+4 Jackes

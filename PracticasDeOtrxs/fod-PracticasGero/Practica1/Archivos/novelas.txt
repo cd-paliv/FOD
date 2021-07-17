@@ -1,0 +1,6 @@
+1 300 terror
+dracula
+2 500 fantasia
+Harry Potter 1
+3 500 fantasia
+Harry Potter 2

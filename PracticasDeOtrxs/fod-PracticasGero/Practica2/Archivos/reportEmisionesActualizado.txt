@@ -1,0 +1,36 @@
+normie1(Cod. 1) | Precio: $100 | Fecha de Emision: 20190403
+Descripcion: meh
+Total de ejemplares: 300 | Total vendidos: 130
+---------------------------------------------------------------
+normie2(Cod. 2) | Precio: $100 | Fecha de Emision: 20190805
+Descripcion: meh
+Total de ejemplares: 300 | Total vendidos: 200
+---------------------------------------------------------------
+normie3(Cod. 3) | Precio: $200 | Fecha de Emision: 20190823
+Descripcion: meh
+Total de ejemplares: 0 | Total vendidos: 0
+---------------------------------------------------------------
+normie4(Cod. 4) | Precio: $300 | Fecha de Emision: 20191114
+Descripcion: meh
+Total de ejemplares: 200 | Total vendidos: 0
+---------------------------------------------------------------
+navidad(Cod. 5) | Precio: $500 | Fecha de Emision: 20191223
+Descripcion: papa noel
+Total de ejemplares: 500 | Total vendidos: 300
+---------------------------------------------------------------
+navidad(Cod. 5) | Precio: $500 | Fecha de Emision: 20191226
+Descripcion: papa noel
+Total de ejemplares: 700 | Total vendidos: 550
+---------------------------------------------------------------
+ano nuevo(Cod. 6) | Precio: $510 | Fecha de Emision: 20191230
+Descripcion: new year
+Total de ejemplares: 600 | Total vendidos: 500
+---------------------------------------------------------------
+ano nuevo(Cod. 6) | Precio: $510 | Fecha de Emision: 20200102
+Descripcion: new year
+Total de ejemplares: 700 | Total vendidos: 75
+---------------------------------------------------------------
+summer(Cod. 7) | Precio: $300 | Fecha de Emision: 20200102
+Descripcion: playa
+Total de ejemplares: 400 | Total vendidos: 100
+---------------------------------------------------------------
