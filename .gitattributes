@@ -11,4 +11,7 @@
 *.htm.bak linguist-language=Pascal
 *.css linguist-language=Pascal
 *.js linguist-language=Pascal
+*.js~ linguist-language=Pascal
 *.png linguist-language=Pascal
+*.JPG linguist-language=Pascal
+*.docx.pdf linguist-language=Pascal
