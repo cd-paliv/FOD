@@ -6,3 +6,9 @@
 *.dat linguist-language=Pascal
 *.ow linguist-language=Pascal
 *.bat linguist-language=Pascal
+*.html linguist-language=Pascal
+*.html~ linguist-language=Pascal
+*.htm.bak linguist-language=Pascal
+*.css linguist-language=Pascal
+*.js linguist-language=Pascal
+*.png linguist-language=Pascal
