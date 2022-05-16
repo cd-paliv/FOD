@@ -1,3 +1,5 @@
 *.exe linguist-language=Java
 *.o linguist-language=Java
 *.txt linguist-language=Java
+*.pptx linguist-language=Java
+*.pdf linguist-language=Java
