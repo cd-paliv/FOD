@@ -1,1 +1,3 @@
-static/* linguist-vendored
+*.exe linguist-language=Java
+*.o linguist-language=Java
+*.txt linguist-language=Java
