@@ -4,3 +4,5 @@
 *.pptx linguist-language=Pascal
 *.pdf linguist-language=Pascal
 *.dat linguist-language=Pascal
+*.ow linguist-language=Pascal
+*.bat linguist-language=Pascal
