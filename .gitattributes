@@ -1,6 +1,6 @@
-*.exe linguist-language=Java
-*.o linguist-language=Java
-*.txt linguist-language=Java
-*.pptx linguist-language=Java
-*.pdf linguist-language=Java
-*.dat linguist-language=Java
+*.exe linguist-language=Pascal
+*.o linguist-language=Pascal
+*.txt linguist-language=Pascal
+*.pptx linguist-language=Pascal
+*.pdf linguist-language=Pascal
+*.dat linguist-language=Pascal
